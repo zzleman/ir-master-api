@@ -801,13 +801,13 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
   attributes: {
     title_az: Attribute.String;
+    title_en: Attribute.String;
+    title_ru: Attribute.String;
     references: Attribute.Relation<
       'api::category.category',
       'oneToMany',
       'api::reference.reference'
     >;
-    title_en: Attribute.String;
-    title_ru: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -894,19 +894,18 @@ export interface ApiReferenceReference extends Schema.CollectionType {
     singularName: 'reference';
     pluralName: 'references';
     displayName: 'reference';
-    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     img: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    type: Attribute.Enumeration<['normal', 'featured']>;
     category: Attribute.Relation<
       'api::reference.reference',
       'manyToOne',
       'api::category.category'
     >;
-    type: Attribute.Enumeration<['normal ', 'featured']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -4,8 +4,7 @@
   "info": {
     "singularName": "reference",
     "pluralName": "references",
-    "displayName": "reference",
-    "description": ""
+    "displayName": "reference"
   },
   "options": {
     "draftAndPublish": true
@@ -13,14 +12,20 @@
   "pluginOptions": {},
   "attributes": {
     "img": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "normal",
+        "featured"
       ]
     },
     "category": {
@@ -28,13 +33,6 @@
       "relation": "manyToOne",
       "target": "api::category.category",
       "inversedBy": "references"
-    },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "normal ",
-        "featured"
-      ]
     }
   }
 }
